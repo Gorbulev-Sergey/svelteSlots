@@ -1,4 +1,4 @@
-import { getContext, setContext, Snippet } from 'svelte';
+import { getContext, setContext } from 'svelte';
 
 let slots = $state<{
 	header?: () => ReturnType<import('svelte').Snippet>;
@@ -10,6 +10,7 @@ export function initSlots() {
 }
 
 export function setSlots(snippets: {}) {
+	slots = snippets;
 	let context = getContext('slots') as {};
-	Object.assign(context, snippets);
+	Object.assign(context, slots);
 }
