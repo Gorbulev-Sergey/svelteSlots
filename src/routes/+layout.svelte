@@ -1,9 +1,7 @@
 <script lang="ts">
 	import favicon from '#lib/assets/favicon.svg';
 	import 'bootstrap/dist/css/bootstrap.min.css';
-	import { initSlots, setSlots } from '../lib/store.svelte';
-
-	let slots = initSlots();
+	import { slots, setSlots } from '../lib/store.svelte';
 
 	let { children } = $props();
 	setSlots({ footer });
