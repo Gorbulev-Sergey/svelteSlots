@@ -21,8 +21,9 @@
 	{@render STORE.slots.header?.()}
 </header>
 
-<div style="min-height:90dvh">
+<div class="container my-8" style="min-height:90dvh">
 	{@render children()}
+	{@render STORE.slots.block?.()}
 </div>
 
 {#if STORE.slots.footer}

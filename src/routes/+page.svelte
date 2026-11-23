@@ -1,13 +1,15 @@
 <script lang="ts">
-	import { setSlots } from '../lib/store.svelte';
+	import Slot from '#lib/components/Slot.svelte';
 
 	let v = $state('Привет');
-
-	setSlots({ header });
 </script>
 
-{#snippet header()}
-	<div class="d-flex align-items-center gap-2 px-10 py-3 bg-warning bg-10">
+<Slot name="header">
+	<div class="d-flex align-items-center gap-2 px-10 py-3 bg-primary bg-50">
 		{v}
 	</div>
-{/snippet}
+</Slot>
+
+<Slot name="block">
+	<div class="px-4 py-10 rounded-3 bg-success bg-75 w-25">Небольшой блочек</div>
+</Slot>
