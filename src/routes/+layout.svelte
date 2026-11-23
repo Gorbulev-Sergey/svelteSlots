@@ -1,9 +1,7 @@
 <script lang="ts">
 	import favicon from '#lib/assets/favicon.svg';
 	import 'bootstrap/dist/css/bootstrap.min.css';
-	import { initSlots, setSlots } from '../lib/store.svelte';
-
-	let slots = initSlots();
+	import { STORE, setSlots } from '../lib/store.svelte';
 
 	let { children } = $props();
 	setSlots({ footer });
@@ -20,15 +18,16 @@
 {/snippet}
 
 <header class="sticky-top w-100">
-	{@render slots.header?.()}
+	{@render STORE.slots.header?.()}
 </header>
 
-<div style="min-height:90dvh">
+<div class="container my-8" style="min-height:90dvh">
 	{@render children()}
+	{@render STORE.slots.block?.()}
 </div>
 
-{#if slots.footer}
+{#if STORE.slots.footer}
 	<footer class="fg-white bg-black bg-90" style="min-height: 20em;">
-		{@render slots.footer?.()}
+		{@render STORE.slots.footer?.()}
 	</footer>
 {/if}
